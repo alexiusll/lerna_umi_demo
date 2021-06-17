@@ -1,6 +1,6 @@
 {
   "name": "rayplus_fus_front",
-  "version": "1.0.2",
+  "version": "0.0.8",
   "scripts": {
     "commit": "git-cz",
     "release": "standard-version",
