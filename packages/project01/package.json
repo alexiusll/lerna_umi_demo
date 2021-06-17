@@ -1,7 +1,6 @@
 {
   "name": "rayplus_test_p1",
   "version": "0.0.7",
-  "private": false,
   "scripts": {
     "dev:project01": "npm run start:dev",
     "start": "cross-env REACT_APP_ENV=dev UMI_ENV=dev umi dev",
