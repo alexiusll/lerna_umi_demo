@@ -3,6 +3,8 @@
   "private": true,
   "scripts": {
     "start": "lerna run dev:project01 --stream",
+    "start:fu": "lerna run dev:fu --stream",
+    
     "ls": "lerna ls",
     "link": "lerna link convert",
     "publish": "lerna publish"

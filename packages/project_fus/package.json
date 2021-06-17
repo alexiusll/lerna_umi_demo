@@ -4,7 +4,7 @@
   "scripts": {
     "commit": "git-cz",
     "release": "standard-version",
-    "dev": "npm run start:dev",
+    "dev:fu": "npm run start:dev",
     "start": "cross-env REACT_APP_ENV=dev UMI_ENV=dev umi dev",
     "start:dev": "cross-env REACT_APP_ENV=dev UMI_ENV=dev MOCK=none umi dev",
     "start:prod": "cross-env REACT_APP_ENV=prod UMI_ENV=prod MOCK=none umi dev",
