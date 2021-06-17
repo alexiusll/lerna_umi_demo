@@ -1,0 +1,14 @@
+{
+  "name": "root",
+  "private": false,
+  "scripts": {
+    "start": "lerna run dev:project01 --stream",
+    "ls": "lerna ls",
+    "link": "lerna link convert",
+    "publish": "lerna publish"
+  },
+  "devDependencies": {
+    "lerna": "^4.0.0"
+  },
+  "version": "0.0.0"
+}

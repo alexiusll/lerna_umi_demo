@@ -1,0 +1,75 @@
+{
+  "version": "1.7.6",
+  "private": false,
+  "scripts": {
+    "dev:project01": "npm run start:dev",
+    "start": "cross-env REACT_APP_ENV=dev UMI_ENV=dev umi dev",
+    "start:dev": "cross-env REACT_APP_ENV=dev UMI_ENV=dev MOCK=none umi dev",
+    "start:prod": "cross-env REACT_APP_ENV=prod UMI_ENV=prod MOCK=none umi dev",
+    "build": "umi build",
+    "build:dev": "cross-env REACT_APP_ENV=dev UMI_ENV=dev umi build",
+    "build:prod": "cross-env REACT_APP_ENV=prod UMI_ENV=prod umi build",
+    "dvalist": "umi dva list model",
+    "openapi": "umi openapi",
+    "test": "umi test",
+    "lint": "eslint {src,mock,tests}/**/*.{js,jsx} --fix",
+    "precommit": "lint-staged",
+    "commit": "git-cz",
+    "release": "standard-version"
+  },
+  "dependencies": {
+    "antd": "^3.19.5",
+    "dva": "^2.6.0-beta.6",
+    "js-cookie": "^2.2.1",
+    "moment": "^2.24.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "release": "^6.0.1",
+    "umi": "^3.4.23",
+    "umi-request": "^1.2.17"
+  },
+  "devDependencies": {
+    "@umijs/fabric": "^2.5.13",
+    "@umijs/preset-react": "^1.8.8",
+    "babel-eslint": "^9.0.0",
+    "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
+    "commitizen": "^4.2.4",
+    "cross-env": "^7.0.3",
+    "cz-conventional-changelog": "^2.1.0",
+    "eslint": "^5.4.0",
+    "eslint-config-umi": "^1.4.0",
+    "eslint-plugin-flowtype": "^2.50.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^5.1.1",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-react": "^7.11.1",
+    "lint-staged": "^11.0.0",
+    "prettier": "^2.3.0",
+    "prop-types": "^15.7.2",
+    "react-test-renderer": "^16.7.0",
+    "standard-version": "^9.3.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,jsx,less,md,json}": [
+      "prettier --write"
+    ],
+    "*.ts?(x)": [
+      "prettier --parser=typescript --write"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://218.4.143.148/rwe/rbac-frontend.git"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  }
+}

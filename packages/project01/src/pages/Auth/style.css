@@ -1,0 +1,44 @@
+.auth_content {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.auth_aside {
+  flex-grow: 0;
+  font-weight: bold !important;
+}
+
+.auth_body {
+  flex-grow: 1;
+  padding-left: 30px;
+  padding-bottom: 30px;
+}
+
+.auth_menu {
+  width: 140px;
+  min-height: 80vh;
+}
+
+.table_margin {
+  margin-top: 20px;
+}
+
+.dynamic_delete_button {
+  margin-left: 15px;
+  cursor: pointer;
+  position: relative;
+  top: 4px;
+  font-size: 20px;
+  color: #999;
+  transition: all 0.3s;
+}
+
+.dynamic_delete_button:hover {
+  color: #777;
+}
+
+.dynamic_delete_button[disabled] {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
