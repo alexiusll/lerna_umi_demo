@@ -1,15 +1,24 @@
 {
-  "packages": ["packages/*"],
-  "version": "0.0.3",
+  "packages": [
+    "packages/*"
+  ],
+  "version": "0.0.4",
   "npmClient": "yarn",
   "command": {
     "publish": {
-      "ignoreChanges": ["*.md", "*.yml", "*.spec.js", "*.test.js"],
+      "ignoreChanges": [
+        "*.md",
+        "*.yml",
+        "*.spec.js",
+        "*.test.js"
+      ],
       "message": "chore(release): publish"
     },
     "bootstrap": {
       "ignore": "component-*",
-      "npmClientArgs": ["--no-package-lock"]
+      "npmClientArgs": [
+        "--no-package-lock"
+      ]
     }
   }
 }
