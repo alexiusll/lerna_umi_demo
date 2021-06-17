@@ -1,5 +1,5 @@
 {
-  "name": "a",
+  "name": "@rayplus/test",
   "version": "0.0.1",
   "description": "> TODO: description",
   "author": "Alexiusll <linkenzone@163.com>",
@@ -22,5 +22,6 @@
   },
   "bugs": {
     "url": "https://github.com/alexiusll/lerna_umi_demo/issues"
-  }
+  },
+  "gitHead": "85c42164f1d9577513b3e6f38b1f4db4aa519c8b"
 }
