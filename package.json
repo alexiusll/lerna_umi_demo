@@ -1,6 +1,6 @@
 {
-  "name": "test-publish",
-  "private": false,
+  "name": "root",
+  "private": true,
   "scripts": {
     "start": "lerna run dev:project01 --stream",
     "ls": "lerna ls",
@@ -10,5 +10,8 @@
   "devDependencies": {
     "lerna": "^4.0.0"
   },
+  "workspaces": [
+    "packages/*"
+  ],
   "version": "0.0.0"
 }
