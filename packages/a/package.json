@@ -23,5 +23,12 @@
   "bugs": {
     "url": "https://github.com/alexiusll/lerna_umi_demo/issues"
   },
-  "gitHead": "61da8bb4bc624f52631ac7719ff58a95a71dfb41"
+  "gitHead": "61da8bb4bc624f52631ac7719ff58a95a71dfb41",
+  "dependencies": {
+    "@umijs/fabric": "^2.6.2"
+  },
+  "devDependencies": {
+    "eslint": "^7.28.0",
+    "eslint-import-resolver-lerna": "^2.0.0"
+  }
 }

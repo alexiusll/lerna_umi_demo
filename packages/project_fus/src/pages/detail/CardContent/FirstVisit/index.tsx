@@ -77,6 +77,7 @@ const FirstVisitContent: React.FC<FirstVisitContentProps> = (props) => {
       let has_other = false;
       const last_node = value[value.length - 1];
       const item_list = last_node.split('-');
+      // eslint-disable-next-line camelcase
       const same_parent_list = [];
 
       if (item_list.length > 2) {

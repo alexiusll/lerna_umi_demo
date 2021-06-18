@@ -9,7 +9,7 @@ import React from 'react';
 import { useEffect } from 'react';
 import type { Dispatch } from 'dva';
 import { connect } from 'dva';
-import { history } from 'umi';
+import { history } from 'umi'; 
 
 import { addDateToCookies, IsNotifications } from '../utils/date';
 

@@ -35,10 +35,7 @@
       "path": "node_modules/cz-conventional-changelog"
     }
   },
-  "repository": {
-    "type": "git",
-    "url": "https://218.4.143.148/rwe/fus-frontend.git"
-  },
+  "repository": "https://218.4.143.148/rwe/fus-frontend.git",
   "browserslist": [
     "> 1%",
     "last 2 versions",
@@ -49,6 +46,7 @@
     "@ant-design/pro-layout": "^6.4.19",
     "@ant-design/pro-table": "2.9.7",
     "@types/js-cookie": "^2.2.6",
+    "@umijs/fabric": "^2.6.2",
     "@umijs/test": "^3.4.3",
     "ant-design-draggable-modal": "^1.0.0",
     "antd": "^4.16.0",
@@ -62,16 +60,9 @@
     "yorkie": "^2.0.0"
   },
   "devDependencies": {
-    "@umijs/fabric": "^2.2.2",
-    "@umijs/preset-react": "^1.8.7",
-    "babel-loader": "^8.2.2",
-    "commitizen": "^4.2.4",
-    "cross-env": "^7.0.2",
-    "cz-conventional-changelog": "^3.3.0",
-    "eslint": "^7.8.1",
-    "lint-staged": "^11.0.0",
-    "prettier": "2.1.2",
-    "standard-version": "^9.3.0"
+    "@umijs/preset-react": "^1.8.10"
   },
-  "gitHead": "ef1604a09005d54fd204c969cf2688818026b778"
+  "gitHead": "ef1604a09005d54fd204c969cf2688818026b778",
+  "main": "index.js",
+  "license": "MIT"
 }

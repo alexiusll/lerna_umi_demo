@@ -1,0 +1,17 @@
+/*
+ * @Author: linkenzone
+ * @Date: 2021-06-18 12:54:31
+ * @Descripttion: Do not edit
+ */
+{
+  "eslint.workingDirectories": [
+    {
+      "directory": "./packages/project_fus",
+      "changeProcessCWD": true
+    },
+    {
+      "directory": "./packages/b",
+      "changeProcessCWD": true
+    }
+  ]
+}
