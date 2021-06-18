@@ -9,7 +9,7 @@
     "start:dev": "cross-env REACT_APP_ENV=dev UMI_ENV=dev MOCK=none umi dev",
     "start:prod": "cross-env REACT_APP_ENV=prod UMI_ENV=prod MOCK=none umi dev",
     "build": "umi build",
-    "build:dev": "cross-env REACT_APP_ENV=dev UMI_ENV=dev umi build",
+    "build:dev:fu": "cross-env REACT_APP_ENV=dev UMI_ENV=dev umi build",
     "build:prod": "cross-env REACT_APP_ENV=prod UMI_ENV=prod umi build",
     "postinstall": "umi generate tmp",
     "prettier": "prettier --write '**/*.{js,jsx,tsx,ts,less,md,json}'",
@@ -59,10 +59,10 @@
     "umi-request": "^1.3.5",
     "yorkie": "^2.0.0"
   },
-  "devDependencies": {
-    "@umijs/preset-react": "^1.8.10"
-  },
   "gitHead": "ef1604a09005d54fd204c969cf2688818026b778",
   "main": "index.js",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "@umijs/preset-react": "^1.8.12"
+  }
 }

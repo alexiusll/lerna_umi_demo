@@ -9,6 +9,8 @@ import { defineConfig } from 'umi';
 import routerConfig from './routerConfig';
 import proxy from './proxy';
 
+const path = require('path');
+
 // process.env包含着关于系统环境的信息
 const { REACT_APP_ENV } = process.env;
 
@@ -41,4 +43,8 @@ export default defineConfig({
     // lazyLoad: true,
   },
   proxy: proxy[REACT_APP_ENV || 'dev'],
+
+  chainWebpack(config: any) {
+    config.module.rule('ts-in-node_modules').include.add(path.join(__dirname, '..')).end();
+  },
 });

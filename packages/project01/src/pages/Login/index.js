@@ -1,13 +1,15 @@
 import React from 'react';
 import { connect } from 'dva';
 import PropTypes from 'prop-types';
-import { Layout, Form, Icon, Input, Button, message, Footer } from 'antd';
+import { Layout, Form, Icon, Input, Button, message } from 'antd';
 // import router from 'umi/router'
 // import CookieUtil from '@/utils/cookie'
 import { history } from 'umi';
 import RayPlus from '@/assets/rayplus.png';
 import Cookies from 'js-cookie';
 import styles from './style.css';
+
+import Footer from 'rayplus_test_a';
 
 const { Content } = Layout;
 
@@ -30,7 +32,7 @@ class Login extends React.Component {
     }
   }
 
-  handleSubmit = e => {
+  handleSubmit = (e) => {
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
       if (!err) {
@@ -42,7 +44,7 @@ class Login extends React.Component {
           dispatch({
             type: 'login/login_project',
             payload: { ...values, system_ids: [1, 2] },
-          }).then(ret => {
+          }).then((ret) => {
             if (ret) {
               message.success('登录成功！');
               history.push('/applications');
@@ -52,7 +54,7 @@ class Login extends React.Component {
           dispatch({
             type: 'login/login',
             payload: { ...values },
-          }).then(ret => {
+          }).then((ret) => {
             if (ret) {
               message.success('权限系统登录成功！');
               history.push('/auth');
@@ -63,7 +65,7 @@ class Login extends React.Component {
     });
   };
 
-  handleChangeLogin = key => {
+  handleChangeLogin = (key) => {
     const { setFieldsValue } = this.props.form;
 
     setFieldsValue({
@@ -138,10 +140,12 @@ class Login extends React.Component {
           </Form>
         </Content>
 
-        <div className={styles.footer}>
+        <Footer />
+
+        {/* <div className={styles.footer}>
           <span>技术支持电话：18071146158</span>
           <span>如电话繁忙，请通过邮箱进行咨询：Rayplus@ray-sg.com</span>
-        </div>
+        </div> */}
       </div>
     );
   }

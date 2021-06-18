@@ -9,6 +9,8 @@ import { defineConfig } from 'umi';
 import routerConfig from './routerConfig';
 import proxy from './proxy';
 
+import { join } from 'path';
+
 // process.env包含着关于系统环境的信息
 const { REACT_APP_ENV } = process.env;
 
@@ -45,4 +47,5 @@ export default defineConfig({
     // lazyLoad: true,
   },
   proxy: proxy[REACT_APP_ENV || 'dev'],
+  extraBabelIncludes: [join(__dirname, '../../a')],
 });

@@ -18,11 +18,6 @@
     "strict": true, // 	启用所有严格类型检查选项。
     "allowJs": true, // 允许编译javascript文件
     "allowSyntheticDefaultImports": true, // 允许从没有设置默认导出的模块中默认导入。这并不影响代码的显示，仅为了类型检查。
-
-    "noImplicitReturns": true,
-    "noImplicitThis": true,
-    "noImplicitAny": true,
-
     "paths": {
       "@/*": ["src/*"],
       "@@/*": ["src/.umi/*"]

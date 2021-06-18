@@ -23,33 +23,12 @@
     "dva": "^2.6.0-beta.6",
     "js-cookie": "^2.2.1",
     "moment": "^2.24.0",
+    "rayplus_test_a": "^0.0.8",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "release": "^6.0.1",
     "umi": "^3.4.23",
     "umi-request": "^1.2.17"
-  },
-  "devDependencies": {
-    "@umijs/fabric": "^2.5.13",
-    "@umijs/preset-react": "^1.8.8",
-    "babel-eslint": "^9.0.0",
-    "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
-    "commitizen": "^4.2.4",
-    "cross-env": "^7.0.3",
-    "cz-conventional-changelog": "^2.1.0",
-    "eslint": "^7.28.0",
-    "eslint-config-umi": "^1.4.0",
-    "eslint-import-resolver-lerna": "^2.0.0",
-    "eslint-plugin-flowtype": "^2.50.0",
-    "eslint-plugin-import": "^2.14.0",
-    "eslint-plugin-jsx-a11y": "^5.1.1",
-    "eslint-plugin-prettier": "^3.1.2",
-    "eslint-plugin-react": "^7.11.1",
-    "lint-staged": "^11.0.0",
-    "prettier": "^2.3.0",
-    "prop-types": "^15.7.2",
-    "react-test-renderer": "^16.7.0",
-    "standard-version": "^9.3.0"
   },
   "config": {
     "commitizen": {
@@ -74,5 +53,8 @@
   "engines": {
     "node": ">=8.0.0"
   },
-  "gitHead": "61da8bb4bc624f52631ac7719ff58a95a71dfb41"
+  "gitHead": "61da8bb4bc624f52631ac7719ff58a95a71dfb41",
+  "devDependencies": {
+    "@umijs/preset-react": "^1.8.12"
+  }
 }
