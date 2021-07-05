@@ -21,12 +21,12 @@ module.exports = {
   output: {
     path: path.join(__dirname, "../dist"),
     filename: "[name].bundle.js",
-    library: {
-      name: "reactButton",
-      type: "umd",
-    },
+    // library: {
+    //   name: "reactButton",
+    //   type: "umd",
+    // },
     // 清理 /dist
-    clean: true,
+    // clean: true,
   },
 
   // 此选项控制是否生成，以及如何生成 source map。

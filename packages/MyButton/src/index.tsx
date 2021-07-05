@@ -4,17 +4,17 @@
  * @Descripttion: Do not edit
  */
 
-// import React from "react";
-// import { render } from "react-dom";
+import React from "react";
+import { render } from "react-dom";
 
 import Button from "./Button";
 
-// const App = () => (
-//   <>
-//     <Button color="red">第一个组件</Button>
-//   </>
-// );
+const App = () => (
+  <>
+    <Button color="red">第一个组件</Button>
+  </>
+);
 
-// render(<App />, document.getElementById("root"));
+render(<App />, document.getElementById("root"));
 
 export { Button };
