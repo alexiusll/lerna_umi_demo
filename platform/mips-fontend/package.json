@@ -1,6 +1,6 @@
 {
   "name": "@rayplus/mip-frontend",
-  "version": "1.0.4",
+  "version": "0.0.9",
   "private": true,
   "publishConfig": {
     "access": "public"
