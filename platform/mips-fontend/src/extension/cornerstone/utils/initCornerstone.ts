@@ -25,7 +25,8 @@ import config from '../config';
 // }
 
 const initCornerstone = () => {
-  console.log('初始化 initCornerstone ...');
+  // console.log('初始化 initCornerstone ...');
+
   // Cornertone Tools
   cornerstoneTools.external.cornerstone = cornerstone;
   cornerstoneTools.external.Hammer = Hammer;

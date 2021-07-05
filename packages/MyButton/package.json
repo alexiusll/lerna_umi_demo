@@ -1,5 +1,5 @@
 {
-  "name": "@rayplus/my_button",
+  "name": "rayplus-my-button",
   "publishConfig": {
     "access": "public"
   },
@@ -21,5 +21,6 @@
   "peerDependencies": {
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
-  }
+  },
+  "gitHead": "539c5fc883d64fff5fa21d66f41cc60ff638a4b2"
 }

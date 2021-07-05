@@ -10,8 +10,6 @@ import { InboxOutlined, UploadOutlined } from '@ant-design/icons';
 
 import request from 'umi-request';
 
-import config from '../config/config';
-
 import style from './style.less';
 
 const { Dragger } = Upload;

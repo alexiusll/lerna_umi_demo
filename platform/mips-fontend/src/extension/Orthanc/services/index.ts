@@ -5,7 +5,7 @@
  */
 import { FetchAllPatients, FetchPatient, FetchPatientStudies } from './patients';
 import { FetchSeriesOfStudies, FetchStudies } from './studies';
-import { FetchSeries, FetchInstancesOfSeries } from './Series';
+import { FetchSeries, FetchInstancesOfSeries } from './series';
 
 const services = {
   // patients

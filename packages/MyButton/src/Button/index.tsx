@@ -15,8 +15,8 @@ const Button: React.FC<ButtonProps> = (props) => {
   const { color } = props;
   return (
     <button
-      className={styles.large + " " + styles.bold}
-      style={{ color: color }}
+      className={`${styles.large} ${styles.bold}`}
+      style={{ color }}
     >
       {props.children}
     </button>

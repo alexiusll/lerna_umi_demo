@@ -18,7 +18,12 @@ declare const API_AUTH_URL: string;
 declare const API_SECRET_KEY: string;
 
 // 避免ts文件中报错
-declare module 'vtk.js/*';
+// declare module 'vtk.js/*';
+// declare module '@kitware/vtk.js/*';
+declare module '@kitware/vtk.js/IO/Core/HttpDataSetReader';
+declare module '@kitware/vtk.js/Common/DataModel/PiecewiseFunction';
+declare module '@kitware/vtk.js/Rendering/Core/ColorTransferFunction/ColorMaps';
+
 declare module 'react-vtk-js';
 
 declare module '@ohif/ui';

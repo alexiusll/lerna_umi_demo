@@ -5,7 +5,7 @@
  */
 import React from 'react';
 
-import { ConnectedAllPatients } from '@/extension/Orthanc';
+import { ConnectedAllPatients } from '@/extension/orthanc';
 
 const AllPatientsPage: React.FC<{}> = () => {
   return (

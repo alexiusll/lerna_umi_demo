@@ -5,7 +5,7 @@
  */
 import React, { useEffect, useState } from 'react';
 import { getUUID } from '../utils/location';
-import { ConnectedSeries } from '@/extension/Orthanc';
+import { ConnectedSeries } from '@/extension/orthanc';
 
 const StudyPage: React.FC<{}> = () => {
   const [uuid, setUuid] = useState<string | null>(null);

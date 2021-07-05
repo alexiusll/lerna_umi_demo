@@ -5,7 +5,7 @@
  */
 import React, { useState, useEffect } from 'react';
 
-import { UploadFilesComponent } from '@/extension/Orthanc';
+import { UploadFilesComponent } from '@/extension/orthanc';
 
 export default () => {
   useEffect(() => {

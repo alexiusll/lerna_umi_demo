@@ -7,7 +7,7 @@ import UploadFilesComponent from './uploadFiles/UploadFilesComponent';
 import ConnectedAllPatients from './patient/ConnectedAllPatients';
 import ConnectedPatient from './patient/ConnectedPatient';
 import ConnectedStudy from './study/ConnectedStudy';
-import ConnectedSeries from './Series/ConnectedSeries';
+import ConnectedSeries from './series/ConnectedSeries';
 import services from './services';
 
 const OrthancExtension = {
@@ -15,7 +15,6 @@ const OrthancExtension = {
   ConnectedPatient,
   ConnectedStudy,
   ConnectedSeries,
-
   UploadFilesComponent,
   services,
 };

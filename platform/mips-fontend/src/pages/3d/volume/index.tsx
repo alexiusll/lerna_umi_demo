@@ -3,135 +3,91 @@
  * @Date: 2021-06-19 23:43:28
  * @Descripttion: Do not edit
  */
-import React, { useState, useEffect } from 'react';
-
-import readImageFile from 'itk/readImageFile';
-import vtkITKHelper from 'vtk.js/Sources/Common/DataModel/ITKHelper';
 
 // Load the rendering pieces we want to use (for both WebGL and WebGPU)
-import 'vtk.js/Sources/Rendering/Profiles/Geometry';
+// import '@kitware/vtk.js/Rendering/Profiles/Volume';
 
 // Force DataAccessHelper to have access to various data source
-import 'vtk.js/Sources/IO/Core/DataAccessHelper/HtmlDataAccessHelper';
-import 'vtk.js/Sources/IO/Core/DataAccessHelper/HttpDataAccessHelper';
-import 'vtk.js/Sources/IO/Core/DataAccessHelper/JSZipDataAccessHelper';
+// import '@kitware/vtk.js/IO/Core/DataAccessHelper/HtmlDataAccessHelper';
+import '@kitware/vtk.js/IO/Core/DataAccessHelper/HttpDataAccessHelper';
+// import '@kitware/vtk.js/IO/Core/DataAccessHelper/JSZipDataAccessHelper';
 
-import vtkActor from 'vtk.js/Sources/Rendering/Core/Actor';
-import vtkFullScreenRenderWindow from 'vtk.js/Sources/Rendering/Misc/FullScreenRenderWindow';
-import vtkHttpDataSetReader from 'vtk.js/Sources/IO/Core/HttpDataSetReader';
-import vtkImageMarchingCubes from 'vtk.js/Sources/Filters/General/ImageMarchingCubes';
-import vtkMapper from 'vtk.js/Sources/Rendering/Core/Mapper';
-import axios from 'axios';
+import React, { useState, useEffect, useRef } from 'react';
+
+import vtkGenericRenderWindow from '@kitware/vtk.js/Rendering/Misc/GenericRenderWindow';
+
+import vtkHttpDataSetReader from '@kitware/vtk.js/IO/Core/HttpDataSetReader';
+
+import vtkVolumeMapper from '@kitware/vtk.js/Rendering/Core/VolumeMapper';
+import vtkVolume from '@kitware/vtk.js/Rendering/Core/Volume';
+
+import vtkPiecewiseFunction from '@kitware/vtk.js/Common/DataModel/PiecewiseFunction';
+import vtkPiecewiseGaussianWidget from '@kitware/vtk.js/Interaction/Widgets/PiecewiseGaussianWidget';
+
+import vtkColorTransferFunction from '@kitware/vtk.js/Rendering/Core/ColorTransferFunction';
+import vtkColorMaps from '@kitware/vtk.js/Rendering/Core/ColorTransferFunction/ColorMaps';
 
 const BaseDemo: React.FC<unknown> = () => {
-  const root: any = React.useRef();
+  const vtkContainerRef = useRef(null);
 
   useEffect(() => {
-    // const fullScreenRenderWindow = vtkFullScreenRenderWindow.newInstance({
-    //   background: [0, 0, 0],
-    // });
+    const genericRenderWindow = vtkGenericRenderWindow.newInstance();
+    genericRenderWindow.setContainer(vtkContainerRef.current);
+    genericRenderWindow.resize();
 
-    const view3d = document.getElementById('view3d');
-    const fullScreenRenderWindow = vtkFullScreenRenderWindow.newInstance({
-      rootContainer: view3d,
-      containerStyle: {
-        height: '100%',
-        overflow: 'hidden',
-      },
-      background: [0, 0, 0],
-    });
+    const renderWindow = genericRenderWindow.getRenderWindow();
+    const renderer = genericRenderWindow.getRenderer();
 
-    const renderWindow = fullScreenRenderWindow.getRenderWindow();
-    const renderer = fullScreenRenderWindow.getRenderer();
-
-    // fullScreenRenderWindow.addController(root.current);
-
-    const actor = vtkActor.newInstance();
-    const mapper = vtkMapper.newInstance();
-    const marchingCube = vtkImageMarchingCubes.newInstance({
-      contourValue: 0.0,
-      computeNormals: true,
-      mergePoints: true,
-    });
-
+    // pipeline
+    const actor = vtkVolume.newInstance();
+    const mapper = vtkVolumeMapper.newInstance();
     actor.setMapper(mapper);
-    // mapper.setInputConnection(marchingCube.getOutputPort());
 
-    function updateIsoValue(e) {
-      const isoValue = Number(e.target.value);
-      marchingCube.setContourValue(isoValue);
-      renderWindow.render();
+    const reader = vtkHttpDataSetReader.newInstance({ fetchGzip: true });
+
+    mapper.setInputConnection(reader.getOutputPort());
+
+    // 透明度
+    // Linear opacity function maps [0, 256] to [0, 1]
+    const piecewiseFun = vtkPiecewiseFunction.newInstance();
+    // eslint-disable-next-line no-plusplus
+    for (let i = 0; i <= 8; i++) {
+      piecewiseFun.addPoint(i * 32, i / 8);
     }
+    actor.getProperty().setScalarOpacity(0, piecewiseFun);
 
-    axios.get('se0.dcm', { responseType: 'blob' }).then((response) => {
-      const jsFile = new File([response.data], 'se0.dcm'); // `${index}.dcm`
-      console.log('jsFile', jsFile);
-      readImageFile(null, jsFile).then(({ webWorker, image }) => {
-        image.name = jsFile.name;
-        console.log('image', image);
-        const imageData = vtkITKHelper.convertItkToVtkImage(image);
-        console.log('imageData', imageData);
+    // 色彩转换
+    const lookupTable = vtkColorTransferFunction.newInstance();
+    // 设置色彩转换的方法
+    lookupTable.applyColorMap(vtkColorMaps.getPresetByName('Cool to Warm'));
+    // 硬编码一个初始化的转换空间
+    // 一般来说你会使用这个方法来获取区间
+    // imageData.getPointData().getScalars().getRange()
+    lookupTable.setMappingRange(0, 256);
+    lookupTable.updateRange();
 
-        mapper.setInputData(imageData);
+    // 设置 actor 属性
+    actor.getProperty().setRGBTransferFunction(0, lookupTable);
 
-        const dataRange = imageData.getPointData().getScalars().getRange();
-        const firstIsoValue = (dataRange[0] + dataRange[1]) / 3;
+    // 设置 ui
+    const widget = vtkPiecewiseGaussianWidget.newInstance({
+      numberOfBins: 256,
+      size: [400, 150],
+    });
 
-        // const el = document.getElementById('isoValue');
-        // el.setAttribute('min', dataRange[0]);
-        // el.setAttribute('max', dataRange[1]);
-        // el.setAttribute('value', firstIsoValue);
-        // el.addEventListener('input', updateIsoValue);
+    reader.setUrl('https://kitware.github.io/vtk-js/data/volume/LIDC2.vti').then(() => {
+      reader.loadData().then(() => {
+        renderer.addVolume(actor);
 
-        marchingCube.setContourValue(firstIsoValue);
-        renderer.addActor(actor);
-        renderer.getActiveCamera().set({ position: [1, 1, 0], viewUp: [0, 0, -1] });
         renderer.resetCamera();
         renderWindow.render();
       });
     });
-
-    // const reader = vtkHttpDataSetReader.newInstance({ fetchGzip: true });
-    // marchingCube.setInputConnection(reader.getOutputPort());
-
-    // reader
-    //   .setUrl(`https://kitware.github.io/vtk-js/data/volume/headsq.vti/index.json`, {
-    //     loadData: true,
-    //   })
-    //   .then(() => {
-    //     const data = reader.getOutputData();
-    //     console.log('data', data);
-    //     const dataRange = data.getPointData().getScalars().getRange();
-    //     const firstIsoValue = (dataRange[0] + dataRange[1]) / 3;
-
-    //     const el = document.getElementById('isoValue');
-    //     el.setAttribute('min', dataRange[0]);
-    //     el.setAttribute('max', dataRange[1]);
-    //     el.setAttribute('value', firstIsoValue);
-    //     el.addEventListener('input', updateIsoValue);
-
-    //     marchingCube.setContourValue(firstIsoValue);
-    //     renderer.addActor(actor);
-    //     renderer.getActiveCamera().set({ position: [1, 1, 0], viewUp: [0, 0, -1] });
-    //     renderer.resetCamera();
-    //     renderWindow.render();
-    //   });
   }, []);
 
   return (
     <>
-      {/* <div ref={root}>233</div> */}
-
-      {/* <table ref={root} style={{ top: '200px' }}>
-        <tr>
-          <td>Iso value</td>
-          <td>
-            <input id="isoValue" type="range" min="0.0" max="1.0" step="0.05" value="0.0" />
-          </td>
-        </tr>
-      </table> */}
-
-      <div id="view3d"></div>
+      <div ref={vtkContainerRef} style={{ height: '640px' }} />
     </>
   );
 };

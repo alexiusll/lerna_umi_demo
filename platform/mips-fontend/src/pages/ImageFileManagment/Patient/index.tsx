@@ -5,7 +5,7 @@
  */
 import React, { useEffect, useState } from 'react';
 import { getUUID } from '../utils/location';
-import { ConnectedPatient } from '@/extension/Orthanc';
+import { ConnectedPatient } from '@/extension/orthanc';
 
 const AllPatientsPage: React.FC<{}> = () => {
   const [uuid, setUuid] = useState<string | null>(null);

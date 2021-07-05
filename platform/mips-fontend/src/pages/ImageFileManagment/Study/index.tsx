@@ -6,7 +6,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { getUUID } from '../utils/location';
-import { ConnectedStudy } from '@/extension/Orthanc';
+import { ConnectedStudy } from '@/extension/orthanc';
 
 const StudyPage: React.FC<{}> = () => {
   const [uuid, setUuid] = useState<string | null>(null);

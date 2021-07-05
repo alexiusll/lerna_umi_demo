@@ -3,7 +3,7 @@
  * @Date: 2021-06-08 21:47:27
  * @Descripttion: Do not edit
  */
-import { Button, Result } from 'antd';
+import { Button, Result, Select } from 'antd';
 import React, { useState } from 'react';
 import { history } from 'umi';
 
@@ -11,61 +11,51 @@ import VolumeDemo from './VolumeDemo';
 import SurfaceDemo from './SurfaceDemo';
 import SliceDemo from './SliceDemo';
 import VTKBasicExample from './basic';
-import VTKFusionExample from './volume';
+import VTKVolumeExample from './volume';
+import BaseVtkDemo from './BaseVtkDemo';
+import FiltersDemo from './FiltersDemo';
+import VtkVolumeSlice from './VtkVolumeSlice';
+import VtkProxyManager from './vtkProxyManager';
+import VtkViewDemo from './vtkViewDemo';
+
+const { Option } = Select;
 
 const Page: React.FC<{}> = () => {
-  const [curCom, setCurCom] = useState('VTKBasicExample');
+  const [curCom, setCurCom] = useState('BaseVtkDemo');
 
   const comList = {
     VolumeDemo: <VolumeDemo />,
     SurfaceDemo: <SurfaceDemo />,
     SliceDemo: <SliceDemo />,
     VTKBasicExample: <VTKBasicExample />,
-    VTKFusionExample: <VTKFusionExample />,
+    VTKVolumeExample: <VTKVolumeExample />,
+    BaseVtkDemo: <BaseVtkDemo />,
+    FiltersDemo: <FiltersDemo />,
+    VtkVolumeSlice: <VtkVolumeSlice />,
+    VtkProxyManager: <VtkProxyManager />,
+    vtkViewDemo: <VtkViewDemo />,
   };
 
   return (
     <>
-      <Button
-        type="primary"
-        onClick={() => {
-          setCurCom('VolumeDemo');
+      <Select
+        defaultValue="BaseVtkDemo"
+        style={{ width: 480 }}
+        onChange={(e) => {
+          setCurCom(e);
         }}
       >
-        VolumeDemo
-      </Button>
-      <Button
-        type="primary"
-        onClick={() => {
-          setCurCom('SurfaceDemo');
-        }}
-      >
-        SurfaceDemo
-      </Button>
-      <Button
-        type="primary"
-        onClick={() => {
-          setCurCom('SliceDemo');
-        }}
-      >
-        SliceDemo
-      </Button>
-      <Button
-        type="primary"
-        onClick={() => {
-          setCurCom('VTKBasicExample');
-        }}
-      >
-        VTKBasicExample
-      </Button>
-      <Button
-        type="primary"
-        onClick={() => {
-          setCurCom('VTKFusionExample');
-        }}
-      >
-        VTKFusionExample
-      </Button>
+        <Option value="VolumeDemo">VolumeDemo</Option>
+        <Option value="SurfaceDemo">SurfaceDemo</Option>
+        <Option value="SliceDemo">SliceDemo</Option>
+        <Option value="VTKBasicExample">VTKBasicExample</Option>
+        <Option value="VTKVolumeExample">VTKVolumeExample</Option>
+        <Option value="BaseVtkDemo">BaseVtkDemo</Option>
+        <Option value="FiltersDemo">FiltersDemo</Option>
+        <Option value="VtkVolumeSlice">VtkVolumeSlice</Option>
+        <Option value="VtkProxyManager">VtkProxyManager</Option>
+        <Option value="vtkViewDemo">vtkViewDemo</Option>
+      </Select>
 
       <div style={{ margin: '24px', padding: '12px', border: '1px #dedede solid' }}>
         {comList[curCom]}

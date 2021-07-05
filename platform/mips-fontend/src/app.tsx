@@ -13,10 +13,9 @@ import initCornerstone from '@/extension/cornerstone/utils/initCornerstone';
  * TODO 获取用户信息
  */
 export async function getInitialState() {
-  initCornerstone();
+  // initCornerstone();
 
   console.log('生成全局初始数据...');
-
   return {
     userName: 'xxx主任',
     isAdmin: false,

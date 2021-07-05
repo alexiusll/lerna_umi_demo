@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "start": "yarn --cwd packages/project01 start",
-    "start:mip": "lerna run dev:mip --stream",
+    "start:mip": "yarn --cwd platform/mips-fontend start",
     "ls": "lerna ls",
     "link": "lerna link convert",
     "publish": "lerna publish"
@@ -60,8 +60,5 @@
     "packages/*",
     "platform/*"
   ],
-  "version": "0.0.0",
-  "dependencies": {
-    "@alexiusll/npm_common": "file:packages\\MyButton"
-  }
+  "version": "0.0.0"
 }

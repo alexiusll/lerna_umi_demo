@@ -5,7 +5,7 @@
  */
 
 import type { Reducer, Effect } from 'umi';
-import { services } from '@/extension/Orthanc';
+import { services } from '@/extension/orthanc';
 
 export type StateType = {
   patientList: any[];
