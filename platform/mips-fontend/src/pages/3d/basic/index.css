@@ -1,0 +1,104 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fullScreen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: black;
+}
+
+.fullParentSize {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* .bigFileDrop {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 50px;
+  padding: calc(50vh - 2em) calc(50vw - 25px - 2em);
+  background-color: white;
+  background-image: url('./dropBG.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  border-radius: 10px;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+} */
+
+.selector {
+  position: absolute;
+  top: 5px;
+  left: 400px;
+  color: white;
+  background: transparent;
+  border: none;
+  border: none;
+  transform: translate(-100%, 0px);
+}
+
+select {
+  -moz-appearance: none;
+}
+
+select option {
+  color: black;
+}
+
+select:focus {
+  border: none;
+  outline: none;
+}
+
+.piecewiseWidget {
+  position: absolute;
+  top: calc(10px + 1em);
+  left: 5px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 5px;
+}
+
+.shadow {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  color: white;
+  background: transparent;
+  border: none;
+  border: none;
+}
+
+.progress {
+  z-index: 1;
+  flex: none;
+  padding: 20px;
+  color: black;
+  font-size: 50px;
+  background: rgba(128, 128, 128, 0.5);
+  border-radius: 10px;
+  user-select: none;
+}
+
+.fpsMonitor {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: solid 1px gray;
+  border-radius: 5px;
+}

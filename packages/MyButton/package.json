@@ -1,0 +1,25 @@
+{
+  "name": "@rayplus/my_button",
+  "publishConfig": {
+    "access": "public"
+  },
+  "version": "1.0.0",
+  "description": "npm发包通用",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/types/index.d.ts",
+  "repository": "https://github.com/alexiusll/test_react_npm",
+  "author": "linkenzone <linkenzone@163.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "webpack serve --config .webpack/webpack.config.js --mode development --env development",
+    "build": "webpack --config .webpack/webpack.config.js",
+    "build:prod": "webpack --config .webpack/webpack.prod.js",
+    "build:types": "tsc --emitDeclarationOnly",
+    "compiler": "rollup -c"
+  },
+  "peerDependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  }
+}

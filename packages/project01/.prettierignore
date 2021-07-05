@@ -1,7 +1,0 @@
-**/*.md
-**/*.svg
-/dist/*
-package.json
-package-lock.json
-.umi
-.umi-production

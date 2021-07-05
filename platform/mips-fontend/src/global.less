@@ -1,0 +1,20 @@
+// 全局样式文件
+// https://umijs.org/zh-CN/docs/assets-css
+
+@import '~antd/es/style/themes/default.less';
+
+//	屏幕 < 576px 响应式栅格
+@media (max-width: @screen-xs) {
+  .invisible-sm {
+    display: none !important;
+  }
+}
+// 表格表头样式
+.ant-table-thead > tr > th {
+  font-weight: 700 !important;
+  background-color: #39bbdb30 !important;
+}
+
+// body::-webkit-scrollbar {
+//   display: none;
+// }
