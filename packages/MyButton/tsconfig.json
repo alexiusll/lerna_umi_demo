@@ -2,7 +2,7 @@
   "compilerOptions": {
     "outDir": "./dist",
     "module": "esnext",
-    "rootDir": "src",
+    "rootDir": ".",
     "target": "es6",
     "lib": ["es6", "dom"],
     "sourceMap": true,
@@ -22,7 +22,8 @@
     "src/**/*",
     "config/**/*",
     ".umirc.ts",
-    "typings.d.ts"
+    "typings.d.ts",
+    "examples/**/*"
   ],
   "exclude": [
     "node_modules",

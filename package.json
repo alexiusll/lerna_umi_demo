@@ -5,8 +5,9 @@
     "start": "yarn --cwd packages/project01 start",
     "start:mip": "yarn --cwd platform/mips-fontend start",
     "ls": "lerna ls",
-    "link": "lerna link convert",
-    "publish": "lerna publish"
+    "publish": "lerna publish",
+    "compiler": "yarn --cwd packages/MyButton compiler",
+    "dev:button": "yarn --cwd packages/MyButton dev"
   },
   "devDependencies": {
     "@babel/cli": "^7.14.5",

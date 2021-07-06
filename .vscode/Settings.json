@@ -6,11 +6,11 @@
 {
   "eslint.workingDirectories": [
     {
-      "directory": "./packages/project_fus",
+      "directory": "./packages/MyButton",
       "changeProcessCWD": true
     },
     {
-      "directory": "./packages/b",
+      "directory": "./packages/mips-fontend",
       "changeProcessCWD": true
     }
   ]

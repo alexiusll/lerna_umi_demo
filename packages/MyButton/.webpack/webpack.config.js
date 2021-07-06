@@ -8,25 +8,25 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 const htmlWebpackPlugin = new HtmlWebpackPlugin({
-  template: path.join(__dirname, "../src/index.html"),
+  template: path.join(__dirname, "../examples/index.html"),
   filename: "./index.html",
 });
 
 module.exports = {
   mode: "development",
   // 入口起点
-  entry: { index: path.join(__dirname, "../src/app.tsx") },
+  entry: { index: path.join(__dirname, "../examples/index.tsx") },
 
   // 可以通过配置 output 选项，告知 webpack 如何向硬盘写入编译文件。
   output: {
     path: path.join(__dirname, "../dist"),
     filename: "[name].bundle.js",
-    // library: {
-    //   name: "reactButton",
-    //   type: "umd",
-    // },
+    library: {
+      name: "reactButton",
+      type: "umd",
+    },
     // 清理 /dist
-    // clean: true,
+    clean: true,
   },
 
   // 此选项控制是否生成，以及如何生成 source map。
@@ -61,11 +61,11 @@ module.exports = {
       {
         test: /\.(ts|tsx)$/,
         exclude: /node_modules/,
-        loader: "awesome-typescript-loader",
-        options: {
-          useBabel: true,
-          babelCore: "@babel/core", // needed for Babel v7
-        },
+        loader: "ts-loader",
+        // options: {
+        //   useBabel: true,
+        //   babelCore: "@babel/core", // needed for Babel v7
+        // },
       },
 
       {
@@ -98,10 +98,10 @@ module.exports = {
     host: "localhost",
     port: 3001,
     // 告诉服务器内容的来源。仅在需要提供静态文件时才进行配置
-    contentBase: "./dist",
+    // contentBase: "./dist",
   },
-  externals: {
-    react: "react",
-    ReactDom: "react-dom",
-  },
+  // externals: {
+  //   react: "react",
+  //   ReactDom: "react-dom",
+  // },
 };

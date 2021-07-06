@@ -3,3 +3,5 @@
 /config
 .history
 .eslintrc.js
+
+rollup.config.js
